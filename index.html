@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <script src="./data.js"></script>
+</head>
+<body>
+    <div id="linksTarget">?</div>
+    <script>
+        foldersOuput = [];
+        folders.forEach((f,i)=>{
+            linksOutput = links.filter(l=>l.folder === i).map(l=>`
+                <h2>${l.name}</h2>
+                <a href="${l.href}">${l.desc}</a>
+            `);
+            foldersOuput.push(`
+                <h1>${f}</h1>
+                ${linksOutput.join("")}
+            `);
+        });
+        linksTarget.innerHTML = foldersOuput.join("");
+    </script>
+</body>
+</html>
